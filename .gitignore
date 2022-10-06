@@ -1,0 +1,9 @@
+# *.out
+# *.o
+# *.a
+
+*
+!*/
+!*.[ch]
+!Makefile
+!.gitignore
