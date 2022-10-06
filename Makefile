@@ -6,7 +6,7 @@
 #    By: mdekker <mdekker@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/05 15:23:33 by mdekker       #+#    #+#                  #
-#    Updated: 2022/10/06 14:27:57 by mdekker       ########   odam.nl          #
+#    Updated: 2022/10/06 16:27:42 by mdekker       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,14 +26,14 @@ OBJECTS=$(addprefix $(BUILDDIR)/, $(SRC:.c=.o))
 all: $(NAME)
 
 clean:
-	@echo "Cleaning..."
+	@echo "🧨 Cleaning build folder..."
 	@rm -rf $(BUILDDIR)
-	@echo "Done!"
+	@echo "✅ Done!"
 
 fclean: clean
-	@echo "Cleaning..."
+	@echo "🧨 Force cleaning..."
 	@rm -f $(NAME)
-	@echo "Done!"
+	@echo "✅ Done!"
 
 $(BUILDDIR)/%.o: %.c $(BUILDDIR)/
 	@$(CC) $(CFLAGS) -c $< -o $@
@@ -42,12 +42,21 @@ $(BUILDDIR)/:
 	@mkdir $(BUILDDIR)
 
 $(NAME): $(OBJECTS)
-	@echo "Compiling..."
+	@echo "⚙️ Compiling..."
 	@ar rc $(NAME) $(OBJECTS)
-	@echo "Done!"
+	@echo "✅ Done!"
 
-run:
-	@echo "Running..."
+norm:
+	@echo "🧐 Norm-i-netting..."
+	@norminette $(SRC)
+	@echo "✅ Done!"
+
+test:
+	@echo "⚙️ Running..."
 	@$(CC) $(CFLAGS) test.c -L. -lft -o run
 	@./run
-	@echo "Done!\n"
+	@echo "✅ Done!"
+
+re:
+	@$(MAKE) fclean
+	@$(MAKE) all
