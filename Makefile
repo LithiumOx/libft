@@ -6,7 +6,7 @@
 #    By: mdekker <mdekker@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/05 15:23:33 by mdekker       #+#    #+#                  #
-#    Updated: 2022/10/06 16:27:42 by mdekker       ########   odam.nl          #
+#    Updated: 2022/10/07 17:04:31 by mdekker       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME=libft.a
 BUILDDIR=build
 SRC=ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 	ft_toupper.c ft_tolower.c ft_strlen.c ft_memset.c ft_bzero.c \
-	ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c ft_memcmp.c \
+	ft_memcpy.c ft_memmove.c ft_memchr.c ft_memcmp.c \
 	ft_strlcpy.c ft_strlcat.c \
 	ft_strncmp.c ft_atoi.c ft_calloc.c
 OBJECTS=$(addprefix $(BUILDDIR)/, $(SRC:.c=.o))
@@ -38,7 +38,7 @@ fclean: clean
 $(BUILDDIR)/%.o: %.c $(BUILDDIR)/
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-$(BUILDDIR)/:
+$(BUILDDIR):
 	@mkdir $(BUILDDIR)
 
 $(NAME): $(OBJECTS)

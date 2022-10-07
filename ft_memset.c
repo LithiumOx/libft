@@ -6,7 +6,7 @@
 /*   By: mdekker <mdekker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/06 16:07:25 by mdekker       #+#    #+#                 */
-/*   Updated: 2022/10/06 17:10:20 by mdekker       ########   odam.nl         */
+/*   Updated: 2022/10/07 14:34:50 by mdekker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,8 @@ void	*ft_memset(void *b, int c, size_t len)
 	unsigned long	i;
 
 	i = 0;
-	while (i < len)
-	{
+	while (++i < len)
 		((unsigned char *)b)[i] = (unsigned char)c;
-		i++;
-	}
 	return (b);
 }
 
