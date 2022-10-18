@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_memchr.c                                        :+:    :+:            */
+/*   ft_strchr.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mdekker <mdekker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/06 16:07:09 by mdekker       #+#    #+#                 */
-/*   Updated: 2022/10/15 14:25:13 by mdekker       ########   odam.nl         */
+/*   Created: 2022/10/13 14:11:27 by mdekker       #+#    #+#                 */
+/*   Updated: 2022/10/18 16:18:21 by mdekker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-
-void	*ft_memchr(const void *s, int c, size_t n)
+char *ft_strchr(const char *s, int c)
 {
-	char	chr;
+	char chr;
 
 	chr = (char)c;
-	if (n <= 0)
+	if (!(*s))
 		return (0);
-	if (!(*((unsigned char *)s)))
-		return (0);
-	else if (chr == *((unsigned char *)s))
-		return ((unsigned char *)s);
-	return (ft_memchr(s + 1, c, n - 1));
+	else if (chr == *s)
+		return ((char *)s);
+	return (ft_strchr(s + 1, c));
 }

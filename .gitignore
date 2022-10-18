@@ -7,3 +7,5 @@
 !*.[ch]
 !Makefile
 !.gitignore
+test.c
+.vscode
