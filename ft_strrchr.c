@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_memcpy.c                                        :+:    :+:            */
+/*   ft_strrchr.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mdekker <mdekker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/06 16:07:17 by mdekker       #+#    #+#                 */
-/*   Updated: 2022/10/19 12:55:13 by mdekker       ########   odam.nl         */
+/*   Created: 2022/10/23 16:38:11 by mdekker       #+#    #+#                 */
+/*   Updated: 2022/10/25 15:12:59 by mdekker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
+// #include <stdio.h>
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+char	*ft_strrchr(const char *s, int c)
 {
-	char		*destination;
-	const char	*source;
+	int	dl;
 
-	destination = dst;
-	source = src;
-	if (dst == NULL && src == NULL)
-		return (NULL);
-	while (n-- > 0)
-		*(destination++) = *(source++);
-	return (dst);
+	dl = ft_strlen(s);
+	while (dl--)
+		if (c == s[dl])
+			return ((char *)s + dl);
+	return (NULL);
 }
+
+// int main()
+// {
+// 	printf("%s", ft_strrchr("Hello World", 'o'));
+// }

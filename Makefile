@@ -6,7 +6,7 @@
 #    By: mdekker <mdekker@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/05 15:23:33 by mdekker       #+#    #+#                  #
-#    Updated: 2022/10/18 12:54:38 by mdekker       ########   odam.nl          #
+#    Updated: 2022/10/25 16:34:52 by mdekker       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,13 +20,19 @@ SRC=ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 	ft_toupper.c ft_tolower.c ft_strlen.c ft_memset.c ft_bzero.c \
 	ft_memcpy.c ft_memmove.c ft_memchr.c ft_memcmp.c \
 	ft_strlcpy.c ft_strlcat.c \
-	ft_strncmp.c ft_atoi.c ft_calloc.c
+	ft_strncmp.c ft_atoi.c \
+	ft_strchr.c ft_strrchr.c \
+	#ft_calloc.c
+SRC = $(wildcard ft_*.c)
 OBJECTS=$(addprefix $(BUILDDIR)/, $(SRC:.c=.o))
+
+$(warning $(OBJECTS))
 
 all: $(NAME)
 
 clean:
 	@echo "🧨 Cleaning build folder..."
+	@rm -rf *\.dSYM
 	@rm -rf $(BUILDDIR)
 	@echo "✅ Done!"
 
@@ -39,7 +45,7 @@ $(BUILDDIR)/%.o: %.c $(BUILDDIR)/
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(BUILDDIR):
-	@mkdir $(BUILDDIR)
+	@mkdir -p $(BUILDDIR)
 
 $(NAME): $(OBJECTS)
 	@echo "⚙️ Compiling..."

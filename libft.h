@@ -6,7 +6,7 @@
 /*   By: mdekker <mdekker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/06 14:24:18 by mdekker       #+#    #+#                 */
-/*   Updated: 2022/10/18 15:51:04 by mdekker       ########   odam.nl         */
+/*   Updated: 2022/10/23 16:48:13 by mdekker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int ft_strlen(const char *s);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_atoi(const char *str);
 size_t ft_strlcpy(char *dst, const char *src, size_t dstsize);
+char *ft_strrchr(const char *s, int c);
 size_t ft_strlcat(char *dst, const char *src, size_t dstsize);
 int ft_strncmp(const char *s1, const char *s2, size_t n);
 char *ft_strchr(const char *s, int c);

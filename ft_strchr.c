@@ -6,18 +6,21 @@
 /*   By: mdekker <mdekker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/13 14:11:27 by mdekker       #+#    #+#                 */
-/*   Updated: 2022/10/18 16:18:21 by mdekker       ########   odam.nl         */
+/*   Updated: 2022/10/19 19:58:01 by mdekker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 char *ft_strchr(const char *s, int c)
 {
-	char chr;
-
-	chr = (char)c;
-	if (!(*s))
-		return (0);
-	else if (chr == *s)
+	while (*s)
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
+	}
+	if (*s == (char)c)
 		return ((char *)s);
-	return (ft_strchr(s + 1, c));
+	return (0);
 }
