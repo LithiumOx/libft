@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isprint.c                                       :+:    :+:            */
+/*   ft_putchar_fd.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mdekker <mdekker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/06 16:07:04 by mdekker       #+#    #+#                 */
-/*   Updated: 2022/10/06 16:21:17 by mdekker       ########   odam.nl         */
+/*   Created: 2022/11/05 16:33:04 by mdekker       #+#    #+#                 */
+/*   Updated: 2022/11/05 16:39:07 by mdekker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int c)
+#include "libft.h"
+
+void	ft_putchar_fd(char c, int fd)
 {
-	return (c >= 32 && c <= 126);
+	write(fd, &c, 1);
 }

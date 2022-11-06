@@ -1,16 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isprint.c                                       :+:    :+:            */
+/*   ft_putnbr_fd.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mdekker <mdekker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/06 16:07:04 by mdekker       #+#    #+#                 */
-/*   Updated: 2022/10/06 16:21:17 by mdekker       ########   odam.nl         */
+/*   Created: 2022/11/05 18:27:16 by mdekker       #+#    #+#                 */
+/*   Updated: 2022/11/06 17:58:54 by mdekker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int c)
+#include "libft.h"
+
+void	ft_putnbr_fd(int n, int fd)
 {
-	return (c >= 32 && c <= 126);
+	if (n == -2147483648)
+		ft_putstr_fd("-2147483648", fd);
+	else
+	{
+		if (n < 0)
+		{
+			ft_putchar_fd('-', fd);
+			n = -n;
+		}
+		else if (n >= 9)
+		{
+			ft_putnbr_fd((n / 10), fd);
+		}
+		ft_putchar_fd((n % 10) + '0', fd);
+	}
 }
