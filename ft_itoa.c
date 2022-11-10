@@ -6,7 +6,7 @@
 /*   By: mdekker <mdekker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/06 18:02:30 by mdekker       #+#    #+#                 */
-/*   Updated: 2022/11/06 18:12:48 by mdekker       ########   odam.nl         */
+/*   Updated: 2022/11/08 15:58:30 by lithium       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_intlen(int n)
 	i = 0;
 	while (n >= 9)
 	{
-		n %= 10;
+		n /= 10;
 		i++;
 	}
 	return (i + 1);
@@ -42,5 +42,5 @@ char	*ft_itoa(int n)
 		n /= 10;
 		intlen--;
 	}
-	if ()
+	return (ptr);
 }
