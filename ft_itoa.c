@@ -6,7 +6,7 @@
 /*   By: mdekker <mdekker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/06 18:02:30 by mdekker       #+#    #+#                 */
-/*   Updated: 2022/11/08 15:58:30 by lithium       ########   odam.nl         */
+/*   Updated: 2022/11/10 20:41:18 by lithium       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ int	ft_intlen(int n)
 	int	i;
 
 	i = 0;
-	while (n >= 9)
+	while (n)
 	{
 		n /= 10;
 		i++;
 	}
-	return (i + 1);
+	return (i);
 }
 
 char	*ft_itoa(int n)
@@ -30,17 +30,36 @@ char	*ft_itoa(int n)
 	int		intlen;
 	char	*ptr;
 
+	if (n == 0)
+		return (ft_strdup("0"));
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
 	intlen = ft_intlen(n);
 	if (n < 0)
-		intlen += 1;
-	ptr = malloc(intlen);
+		intlen++;
+	ptr = ft_calloc(sizeof(char), intlen + 1);
 	if (ptr == NULL)
 		return (NULL);
-	while (intlen != 0)
+	if (n < 0)
 	{
-		ptr[intlen] = (n % 10) + '0';
+		ptr[0] = '-';
+		n = -n;
+	}
+	while (n)
+	{
+		ptr[--intlen] = (n % 10) + '0';
 		n /= 10;
-		intlen--;
 	}
 	return (ptr);
 }
+
+// int	main(void)
+// {
+// 	int		n;
+// 	char	*ptr;
+
+// 	n = 123456789;
+// 	ptr = ft_itoa(n);
+// 	printf("%s", ptr);
+// 	return (0);
+// }
