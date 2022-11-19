@@ -6,11 +6,11 @@
 /*   By: mdekker <mdekker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/06 16:06:51 by mdekker       #+#    #+#                 */
-/*   Updated: 2022/10/18 16:16:38 by mdekker       ########   odam.nl         */
+/*   Updated: 2022/11/18 18:24:17 by mdekker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	checkchar(char c, char *comparison)
+static int	checkchar(char c, char *comparison)
 {
 	if (!(*comparison))
 		return (0);
