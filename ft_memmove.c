@@ -6,7 +6,7 @@
 /*   By: mdekker <mdekker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/06 16:07:20 by mdekker       #+#    #+#                 */
-/*   Updated: 2022/10/18 16:08:30 by mdekker       ########   odam.nl         */
+/*   Updated: 2022/11/20 03:05:48 by mdekker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void *loop(char *dst, char *src, size_t len, size_t dir)
+void	*loop(char *dst, char *src, size_t len, size_t dir)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (dir == 0)
@@ -39,10 +39,10 @@ void *loop(char *dst, char *src, size_t len, size_t dir)
 	return (dst);
 }
 
-void *ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char *to;
-	char *from;
+	char	*to;
+	char	*from;
 
 	to = (char *)dst;
 	from = (char *)src;

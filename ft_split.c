@@ -6,11 +6,22 @@
 /*   By: mdekker <mdekker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/17 15:03:20 by mdekker       #+#    #+#                 */
-/*   Updated: 2022/11/19 18:49:44 by mdekker       ########   odam.nl         */
+/*   Updated: 2022/11/20 03:03:13 by mdekker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static char	**ft_free(char **strs, int i)
+{
+	while (i >= 0)
+	{
+		free(strs[i]);
+		i--;
+	}
+	free(strs);
+	return (NULL);
+}
 
 static int	wordcount(char const *s, char c)
 {
@@ -33,54 +44,59 @@ static int	wordcount(char const *s, char c)
 	return (i);
 }
 
-static int	getwordlen(char const *s, char c)
+static int	getwordlen(char const *s, unsigned int start, char c)
 {
-	int	i;
-
-	i = 0;
-	while (*s != c)
-		i++;
-	return (i);
+	while (s[start] != c)
+	{
+		if (s[start] == '\0')
+			return (start);
+		start++;
+	}
+	return (start);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**arr;
-	int		i;
+	char			**arr;
+	unsigned int	i;
+	unsigned int	j;
 
 	i = 0;
+	j = 0;
 	if (!s)
 		return (NULL);
-	arr = (char **)malloc(sizeof(char *) * (wordcount(s, c) + 1));
-	// if (!arr)
-	// 	return (NULL);
-	while (*s)
+	arr = ft_calloc(wordcount(s, c) + 1, sizeof(char *));
+	if (!arr)
+		return (NULL);
+	while (s[j] != '\0')
 	{
-		if (*s != c)
+		if (s[j] != c)
 		{
-			arr[i] = ft_substr(s, 0, getwordlen(s, c));
+			arr[i] = ft_substr(s, j, getwordlen(s, j, c) - j);
+			if (!arr[i])
+				return (ft_free(arr, i));
 			i++;
-			s += getwordlen(s, c);
+			j = getwordlen(s, j, c);
 		}
 		else
-			s++;
+			j++;
 	}
-	arr[i] = NULL;
 	return (arr);
 }
 
-int	main(void)
-{
-	char	*str;
-	char	**arr;
-	int		i;
+// int	main(void)
+// {
+// 	char	*str;
+// 	char	**arr;
+// 	int		i;
 
-	str = "lorem ipsum dolor sit amet";
-	arr = ft_split(str, ' ');
-	i = 0;
-	while (arr[i])
-	{
-		printf("%s\n", arr[i]);
-		i++;
-	}
-}
+// 	str = "      split       this for   me  !       ";
+// 	arr = ft_split(str, ' ');
+// 	i = 0;
+// 	while (arr[i])
+// 	{
+// 		printf("%d -> %s\n", i, arr[i]);
+// 		i++;
+// 	}
+// 	printf("\nwordcount: %d\n", wordcount(str, ' '));
+// }
