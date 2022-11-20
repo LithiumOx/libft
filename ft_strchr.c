@@ -6,13 +6,13 @@
 /*   By: mdekker <mdekker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/13 14:11:27 by mdekker       #+#    #+#                 */
-/*   Updated: 2022/10/19 19:58:01 by mdekker       ########   odam.nl         */
+/*   Updated: 2022/11/20 12:35:17 by mdekker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	while (*s)
 	{

@@ -6,13 +6,14 @@
 /*   By: mdekker <mdekker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/20 02:56:31 by mdekker       #+#    #+#                 */
-/*   Updated: 2022/11/20 02:56:36 by mdekker       ########   odam.nl         */
+/*   Updated: 2022/11/20 12:34:41 by mdekker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;

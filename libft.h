@@ -6,7 +6,7 @@
 /*   By: mdekker <mdekker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/06 14:24:18 by mdekker       #+#    #+#                 */
-/*   Updated: 2022/11/19 18:38:08 by mdekker       ########   odam.nl         */
+/*   Updated: 2022/11/20 12:32:27 by mdekker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,5 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
+
 #endif
